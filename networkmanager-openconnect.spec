@@ -1,12 +1,12 @@
-%define nm_version          0.8.2
+%define nm_version          0.8.3.997
 %define dbus_version        1.1
 %define gtk2_version        2.10.0
 %define openconnect_version 0.99
 
 Summary:   NetworkManager VPN integration for openconnect
 Name:      networkmanager-openconnect
-Version:   0.8.2
-Release:   %mkrel 2
+Version:   0.8.3.995
+Release:   %mkrel 1
 License:   GPLv2+
 Group:     System/Base
 URL:       http://www.gnome.org/projects/NetworkManager/
