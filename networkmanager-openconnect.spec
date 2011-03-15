@@ -6,11 +6,13 @@
 Summary:   NetworkManager VPN integration for openconnect
 Name:      networkmanager-openconnect
 Version:   0.8.3.995
-Release:   %mkrel 2
+Release:   %mkrel 3
 License:   GPLv2+
 Group:     System/Base
 URL:       http://www.gnome.org/projects/NetworkManager/
 Source:    http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.8/NetworkManager-openconnect-%{version}.tar.bz2
+Patch0:	NetworkManager-openconnect-0.8.3.995-gitf4005f3.patch
+Patch1: NetworkManager-openconnect-0.8.3.995-format-not-literal.patch
 BuildRequires: gtk2-devel >= %{gtk2_version}
 BuildRequires: dbus-devel >= %{dbus_version}
 BuildRequires: libnm-util-devel >= %{nm_version}
@@ -22,6 +24,7 @@ BuildRequires: libgnome-keyring-devel
 BuildRequires: libglade2.0-devel
 BuildRequires: libpng-devel
 BuildRequires: intltool gettext
+BuildRequires: openconnect-static-devel
 Requires: gtk2             >= %{gtk2_version}
 Requires: dbus             >= %{dbus_version}
 Requires: NetworkManager   >= %{nm_version}
@@ -35,9 +38,12 @@ with NetworkManager and the GNOME desktop
 
 %prep
 %setup -q -n NetworkManager-openconnect-%{version}
+%patch0 -p1
+%patch1 -p1
 
 %build
-%configure2_5x --disable-static
+autoreconf -fis
+%configure2_5x --disable-static --with-gnome --with-authdlg
 %make
 
 %install
@@ -61,6 +67,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING
 %{_libdir}/NetworkManager/lib*.so*
+%{_libdir}/nm-openconnect-auth-dialog
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/nm-openconnect-service.conf
 %config(noreplace) %{_sysconfdir}/NetworkManager/VPN/nm-openconnect-service.name
 %{_libexecdir}/nm-openconnect-service
