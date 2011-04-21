@@ -1,4 +1,4 @@
-%define nm_version          0.8.3.997
+%define nm_version          0.8.4
 %define dbus_version        1.1
 %define gtk2_version        2.10.0
 %define openconnect_version 3.01
