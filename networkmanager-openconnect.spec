@@ -40,7 +40,7 @@ with NetworkManager and the GNOME desktop
 %patch1 -p1
 
 %build
-%configure2_5x --disable-static --with-gnome --with-authdlg
+%configure2_5x --disable-static --with-gnome --with-authdlg --enable-more-warnings=no
 %make
 
 %install
