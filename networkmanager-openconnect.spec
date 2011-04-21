@@ -5,13 +5,12 @@
 
 Summary:   NetworkManager VPN integration for openconnect
 Name:      networkmanager-openconnect
-Version:   0.8.3.995
-Release:   %mkrel 3
+Version:   0.8.4
+Release:   %mkrel 1
 License:   GPLv2+
 Group:     System/Base
 URL:       http://www.gnome.org/projects/NetworkManager/
 Source:    http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.8/NetworkManager-openconnect-%{version}.tar.bz2
-Patch0:	NetworkManager-openconnect-0.8.3.995-gitf4005f3.patch
 Patch1: NetworkManager-openconnect-0.8.3.995-format-not-literal.patch
 BuildRequires: gtk2-devel >= %{gtk2_version}
 BuildRequires: dbus-devel >= %{dbus_version}
@@ -38,11 +37,9 @@ with NetworkManager and the GNOME desktop
 
 %prep
 %setup -q -n NetworkManager-openconnect-%{version}
-%patch0 -p1
 %patch1 -p1
 
 %build
-autoreconf -fis
 %configure2_5x --disable-static --with-gnome --with-authdlg
 %make
 
