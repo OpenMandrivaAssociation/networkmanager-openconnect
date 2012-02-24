@@ -1,56 +1,56 @@
-%define nm_version          0.8.6.0
+%define nm_version          0.9.2.0
 %define dbus_version        1.1
-%define gtk2_version        2.10.0
 %define openconnect_version 3.01
 
-Summary:   NetworkManager VPN integration for openconnect
-Name:      networkmanager-openconnect
-Version:   0.8.6.0
-Release:   %mkrel 1
-License:   GPLv2+
-Group:     System/Base
-URL:       http://www.gnome.org/projects/NetworkManager/
-Source:    http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.8/NetworkManager-openconnect-%{version}.tar.xz
-BuildRequires: gtk2-devel >= %{gtk2_version}
-BuildRequires: dbus-devel >= %{dbus_version}
-BuildRequires: libnm-util-devel >= %{nm_version}
-BuildRequires: libnm-glib-devel >= %{nm_version}
-BuildRequires: libnm-glib-vpn-devel >= %{nm_version}
-BuildRequires: libGConf2-devel
-BuildRequires: gnomeui2-devel
-BuildRequires: libgnome-keyring-devel
-BuildRequires: libglade2.0-devel
-BuildRequires: libpng-devel
-BuildRequires: intltool gettext
-BuildRequires: openconnect-static-devel
-Requires: gtk2             >= %{gtk2_version}
-Requires: dbus             >= %{dbus_version}
+Summary:	NetworkManager VPN integration for openconnect
+Name:		networkmanager-openconnect
+Version:	0.9.2.0
+Release:	1
+License:	GPLv2+
+Group:		System/Base
+URL:		http://www.gnome.org/projects/NetworkManager/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.9/NetworkManager-openconnect-%{version}.tar.xz
+BuildRequires: gettext
+BuildRequires: intltool
+BuildRequires: pkgconfig(dbus-1)
+BuildRequires: pkgconfig(gconf-2.0)
+BuildRequires: pkgconfig(gnome-keyring-1)
+BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(libglade-2.0)
+BuildRequires: pkgconfig(libgnomeui-2.0)
+BuildRequires: pkgconfig(libnm-util) >= %{nm_version}
+BuildRequires: pkgconfig(libnm-glib) >= %{nm_version}
+BuildRequires: pkgconfig(libnm-glib-vpn) >= %{nm_version}
+BuildRequires: pkgconfig(libpng15)
+BuildRequires: pkgconfig(openconnect)
+Requires: gtk+3
+Requires: dbus
 Requires: NetworkManager   >= %{nm_version}
 Requires: openconnect      >= %{openconnect_version}
 Obsoletes: openconnect-nm-auth-dialog
-BuildRoot: %{_tmppath}/%{name}-%{version}
 
 %description
 This package contains software for integrating the openconnect VPN software
 with NetworkManager and the GNOME desktop
 
 %prep
-%setup -q -n NetworkManager-openconnect-%{version}
+%setup -qn NetworkManager-openconnect-%{version}
 
 %build
-%configure2_5x --disable-static --with-gnome --with-authdlg --enable-more-warnings=no
+%configure2_5x \
+	--disable-static \
+	--with-gnome \
+	--with-authdlg \
+	--enable-more-warnings=no
 %make
 
 %install
-%{__rm} -rf %{buildroot}
+rm -rf %{buildroot}
 %makeinstall_std
 
 rm -f %{buildroot}%{_libdir}/NetworkManager/libnm-openconnect-properties.la
 
 %find_lang NetworkManager-openconnect
-
-%clean
-rm -rf %{buildroot}
 
 %pre
 %{_sbindir}/groupadd -r nm-openconnect &>/dev/null || :
@@ -59,7 +59,6 @@ rm -rf %{buildroot}
                      -g nm-openconnect nm-openconnect &>/dev/null || :
 
 %files -f NetworkManager-openconnect.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING
 %{_libdir}/NetworkManager/lib*.so*
 %{_libdir}/nm-openconnect-auth-dialog
