@@ -9,7 +9,7 @@ Release:	1
 License:	GPLv2+
 Group:		System/Base
 URL:		http://www.gnome.org/projects/NetworkManager/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/0.9/NetworkManager-openconnect-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/NetworkManager-openconnect-%{version}.tar.xz
 # ca8a39d1bb999ba98ead45e53041fc3ea28ecd5c 
 Patch0:	NetworkManager-openconnect-0.9.2.0-fix-headers-usage.patch
 # c6d92c3e64898ea62789def04b86752dec904326
