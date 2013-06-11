@@ -1,2 +1,4 @@
+removed_sources:
+  NetworkManager-openconnect-0.9.8.0.tar.xz: 3ba0028e81f6a46f5ba207b52aadabce78c2418c
 sources:
-  "NetworkManager-openconnect-0.9.8.0.tar.xz": 3ba0028e81f6a46f5ba207b52aadabce78c2418c
+  NetworkManager-openconnect-0.9.8.2.tar.xz: 76d2079ccc5fae98d42b6cee4b551a0279430cb7
