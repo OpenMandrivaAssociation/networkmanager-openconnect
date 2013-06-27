@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnm-util)
 BuildRequires:	pkgconfig(libnm-glib)
 BuildRequires:	pkgconfig(libnm-glib-vpn)
-BuildRequires:	pkgconfig(libpng15)
+BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openconnect)
 Requires:	gtk+3
 Requires:	dbus
