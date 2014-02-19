@@ -59,7 +59,7 @@ with NetworkManager and the GNOME desktop
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/nm-openconnect-service.conf
 %config(noreplace) %{_sysconfdir}/NetworkManager/VPN/nm-openconnect-service.name
 %{_libdir}/NetworkManager/lib*.so*
-%{_libdir}/nm-openconnect-auth-dialog
+%{_libexecdir}/nm-openconnect-auth-dialog
 %{_libexecdir}/nm-openconnect-service
 %{_libexecdir}/nm-openconnect-service-openconnect-helper
 %{_datadir}/gnome-vpn-properties/openconnect
