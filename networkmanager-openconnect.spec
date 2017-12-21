@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(libnm-glib-vpn)
 BuildRequires:	pkgconfig(libpng)
 BuildRequires:	pkgconfig(openconnect)
 BuildRequires:	pkgconfig(libsecret-unstable)
+BuildRequires:	pkgconfig(libnl-3.0)
 Requires:	gtk+3
 Requires:	dbus
 Requires:	NetworkManager
