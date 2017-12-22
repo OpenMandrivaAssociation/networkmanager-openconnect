@@ -65,3 +65,5 @@ with NetworkManager and the GNOME desktop
 %{_libexecdir}/nm-openconnect-service
 %{_libexecdir}/nm-openconnect-service-openconnect-helper
 %{_datadir}/gnome-vpn-properties/openconnect
+%{_prefix}/lib/NetworkManager/VPN/nm-openconnect-service.name
+%{_datadir}/appdata/network-manager-openconnect.metainfo.xml
