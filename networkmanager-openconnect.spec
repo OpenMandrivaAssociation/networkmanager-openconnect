@@ -3,12 +3,12 @@
 Summary:	NetworkManager VPN integration for openconnect
 Name:		networkmanager-openconnect
 Version:	1.2.6
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Base
 Url:		http://www.gnome.org/projects/NetworkManager/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/%{url_ver}/NetworkManager-openconnect-%{version}.tar.xz
-
+Source1:	%{name}.sysusers
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(dbus-1)
@@ -25,6 +25,7 @@ Requires:	dbus
 Requires:	NetworkManager
 Requires:	openconnect
 Obsoletes:	openconnect-nm-auth-dialog
+Requires(pre):	systemd
 
 %description
 This package contains software for integrating the openconnect VPN software
@@ -41,22 +42,22 @@ with NetworkManager and the GNOME desktop
 	--with-authdlg \
 	--enable-more-warnings=no \
 	--with-gtkver=3
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %find_lang NetworkManager-openconnect
+install -Dm 644 %{SOURCE1} %{buildroot}%{_sysusersdir}/%{name}.conf
 
 %pre
-%{_sbindir}/groupadd -r nm-openconnect &>/dev/null || :
-%{_sbindir}/useradd  -r -s /sbin/nologin -d / -M \
-                     -c 'NetworkManager user for OpenConnect' \
-                     -g nm-openconnect nm-openconnect &>/dev/null || :
+%sysusers_create_package %{name}.conf %{SOURCE1}
 
 %files -f NetworkManager-openconnect.lang
 %doc AUTHORS ChangeLog COPYING
 %config(noreplace) %{_sysconfdir}/dbus-1/system.d/nm-openconnect-service.conf
+%{_sysusersdir}/%{name}.conf
 %{_libdir}/NetworkManager/lib*.so*
 %{_libexecdir}/nm-openconnect-auth-dialog
 %{_libexecdir}/nm-openconnect-service
