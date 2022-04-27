@@ -1,6 +1,6 @@
 diff -uraN NetworkManager-openconnect-1.2.8/Makefile.am omv-NetworkManager-openconnect-1.2.8/Makefile.am
 --- NetworkManager-openconnect-1.2.8/Makefile.am	2022-03-11 16:54:42.000000000 +0100
-+++ omv-NetworkManager-openconnect-1.2.8/Makefile.am	2022-04-27 16:25:19.351932124 +0200
++++ omv-NetworkManager-openconnect-1.2.8/Makefile.am	2022-04-27 16:38:21.351055731 +0200
 @@ -132,6 +132,7 @@
  	$(LIBNM_CFLAGS)
  
@@ -9,3 +9,27 @@ diff -uraN NetworkManager-openconnect-1.2.8/Makefile.am omv-NetworkManager-openc
  	$(LIBNM_LIBS) \
  	$(OPENCONNECT_LIBS) \
  	$(DL_LIBS) \
+@@ -159,6 +160,7 @@
+ 
+ properties_libnm_vpn_plugin_openconnect_editor_la_LIBADD = \
+ 	$(GTK_LIBS) \
++	$(GLIB_LIBS) \
+ 	$(LIBNM_LIBS) \
+ 	$(LIBNMA_LIBS) \
+ 	$(OPENCONNECT_LIBS)
+@@ -185,6 +187,7 @@
+ 
+ properties_libnm_gtk4_vpn_plugin_openconnect_editor_la_LIBADD = \
+ 	$(GTK4_LIBS) \
++	$(GLIB_LIBS) \
+ 	$(LIBNM_LIBS) \
+ 	$(LIBNMA_GTK4_LIBS) \
+ 	$(OPENCONNECT_LIBS)
+@@ -251,6 +254,7 @@
+ auth_dialog_nm_openconnect_auth_dialog_LDADD = \
+ 	$(GTK_LIBS) \
+ 	$(GCR_LIBS) \
++	$(GLIB_LIBS) \
+ 	$(LIBNM_LIBS) \
+ 	$(OPENCONNECT_LIBS) \
+ 	$(LIBXML_LIBS) \
