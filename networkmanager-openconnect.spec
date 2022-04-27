@@ -9,6 +9,7 @@ Group:		System/Base
 Url:		http://www.gnome.org/projects/NetworkManager/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/%{url_ver}/NetworkManager-openconnect-%{version}.tar.xz
 Source1:	%{name}.sysusers
+Patch0:		fix-underlinking-openmandriva.patch
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(dbus-1)
