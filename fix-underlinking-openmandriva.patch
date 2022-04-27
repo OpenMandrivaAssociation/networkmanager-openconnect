@@ -1,0 +1,11 @@
+diff -uraN NetworkManager-openconnect-1.2.8/Makefile.am omv-NetworkManager-openconnect-1.2.8/Makefile.am
+--- NetworkManager-openconnect-1.2.8/Makefile.am	2022-03-11 16:54:42.000000000 +0100
++++ omv-NetworkManager-openconnect-1.2.8/Makefile.am	2022-04-27 16:25:19.351932124 +0200
+@@ -132,6 +132,7 @@
+ 	$(LIBNM_CFLAGS)
+ 
+ properties_libnm_vpn_plugin_openconnect_la_LIBADD = \
++	$(GLIB_LIBS) \
+ 	$(LIBNM_LIBS) \
+ 	$(OPENCONNECT_LIBS) \
+ 	$(DL_LIBS) \
