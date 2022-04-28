@@ -1,0 +1,45 @@
+From 9104cc89a879d4894c0998c8d71e42ae6b36b786 Mon Sep 17 00:00:00 2001
+From: David Woodhouse <dwmw2@infradead.org>
+Date: Thu, 28 Apr 2022 15:44:50 +0100
+Subject: [PATCH] Add gmodule-2.0 to plugin link
+
+Should really fix #88 this time.
+---
+ Makefile.am  | 2 ++
+ configure.ac | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/Makefile.am b/Makefile.am
+index bcd8d21..487043c 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -114,6 +114,7 @@ editor_sources = \
+ 
+ properties_cppflags = \
+ 	$(GLIB_CFLAGS) \
++	$(GMODULE_CFLAGS) \
+ 	$(OPENCONNECT_CFLAGS) \
+ 	-I$(top_srcdir)/shared \
+ 	-DLOCALEDIR=\"$(datadir)/locale\"
+@@ -133,6 +134,7 @@ properties_libnm_vpn_plugin_openconnect_la_CFLAGS = \
+ 
+ properties_libnm_vpn_plugin_openconnect_la_LIBADD = \
+ 	$(GLIB_LIBS) \
++	$(GMODULE_LIBS) \
+ 	$(LIBNM_LIBS) \
+ 	$(OPENCONNECT_LIBS) \
+ 	$(DL_LIBS) \
+diff --git a/configure.ac b/configure.ac
+index 48e8550..e4a194c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -110,6 +110,7 @@ PKG_CHECK_MODULES(GLIB, glib-2.0 >= 2.34)
+ GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MIN_REQUIRED=GLIB_VERSION_2_34"
+ GLIB_CFLAGS="$GLIB_CFLAGS -DGLIB_VERSION_MAX_ALLOWED=GLIB_VERSION_2_34"
+ 
++PKG_CHECK_MODULES(GMODULE, gmodule-2.0)
+ PKG_CHECK_MODULES(LIBXML, libxml-2.0)
+ 
+ if test x"$with_gnome" != xno || test x"$with_gtk4" != xno; then
+-- 
+GitLab
