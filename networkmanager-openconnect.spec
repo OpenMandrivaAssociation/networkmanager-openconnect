@@ -9,7 +9,8 @@ Group:		System/Base
 Url:		http://www.gnome.org/projects/NetworkManager/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/%{url_ver}/NetworkManager-openconnect-%{version}.tar.xz
 Source1:	%{name}.sysusers
-Patch0:		https://gitlab.gnome.org/GNOME/NetworkManager-openconnect/-/commit/9104cc89a879d4894c0998c8d71e42ae6b36b786.patch
+Patch0:		https://gitlab.gnome.org/GNOME/NetworkManager-openconnect/-/commit/205d33d370092230b104276a1d5a78cfe5e7fe80.patch
+Patch1:		https://gitlab.gnome.org/GNOME/NetworkManager-openconnect/-/commit/9104cc89a879d4894c0998c8d71e42ae6b36b786.patch
 BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(dbus-1)
