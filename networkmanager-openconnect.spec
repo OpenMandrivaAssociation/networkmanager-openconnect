@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(libnma)
 BuildRequires:	pkgconfig(openconnect)
 BuildRequires:	pkgconfig(libsecret-unstable)
 BuildRequires:	pkgconfig(libnm)
+BuildRequires:	pkgconfig(webkit2gtk-4.1)
 Requires:	gtk+3
 Requires:	gtk4
 Requires:	dbus
