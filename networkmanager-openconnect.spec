@@ -61,7 +61,7 @@ install -Dm 644 %{SOURCE1} %{buildroot}%{_sysusersdir}/%{name}.conf
 
 %files -f NetworkManager-openconnect.lang
 %doc AUTHORS ChangeLog COPYING
-%config(noreplace) %{_sysconfdir}/dbus-1/system.d/nm-openconnect-service.conf
+#config(noreplace) %{_sysconfdir}/dbus-1/system.d/nm-openconnect-service.conf
 %{_sysusersdir}/%{name}.conf
 %{_libdir}/NetworkManager/lib*.so*
 %{_libexecdir}/nm-openconnect-auth-dialog
@@ -69,4 +69,4 @@ install -Dm 644 %{SOURCE1} %{buildroot}%{_sysusersdir}/%{name}.conf
 %{_libexecdir}/nm-openconnect-service-openconnect-helper
 #{_datadir}/gnome-vpn-properties/openconnect
 %{_prefix}/lib/NetworkManager/VPN/nm-openconnect-service.name
-%{_datadir}/appdata/network-manager-openconnect.metainfo.xml
+#{_datadir}/appdata/network-manager-openconnect.metainfo.xml
