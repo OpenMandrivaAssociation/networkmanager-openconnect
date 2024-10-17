@@ -6,7 +6,7 @@ Version:	1.2.10
 Release:	1
 License:	GPLv2+
 Group:		System/Base
-Url:		http://www.gnome.org/projects/NetworkManager/
+Url:		https://www.gnome.org/projects/NetworkManager/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/NetworkManager-openconnect/%{url_ver}/NetworkManager-openconnect-%{version}.tar.xz
 Source1:	%{name}.sysusers
 BuildRequires:	gettext
