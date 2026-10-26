@@ -53,6 +53,10 @@ with NetworkManager and the GNOME desktop
 	--with-gtkver=3 \
 	--with-gtk4
 
+# autoconf records "none required" when dlopen is in libc, and that text
+# is then passed through to the linker.
+find . -name Makefile -exec sed -i 's/ none required//g' {} +
+
 %make_build
 
 %install
